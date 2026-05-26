@@ -10,9 +10,9 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.30.0",
-    "@astrojs/svelte": "^6.0.0",
-    "astro": "^5.0.0",
-    "svelte": "^5.0.0"
+    "@astrojs/starlight": "^0.39.0",
+    "@astrojs/svelte": "^8.0.0",
+    "astro": "^6.0.0",
+    "svelte": "^5.43.6"
   }
 }
