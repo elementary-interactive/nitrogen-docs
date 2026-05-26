@@ -22,10 +22,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Getting Started',
-					items: [
-						{ label: 'Overview', slug: 'getting-started/overview' },
-						{ label: 'Quickstart', slug: 'getting-started/quickstart' }
-					]
+					items: [{ autogenerate: { directory: 'getting-started' } }]
 				},
 				{
 					label: 'Packages',
