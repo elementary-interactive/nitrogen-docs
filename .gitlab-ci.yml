@@ -1,0 +1,43 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: '20'
+
+build:
+  stage: build
+  image: node:${NODE_VERSION}-alpine
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  needs: ['build']
+  before_script:
+    - apk add --no-cache rsync openssh-client git
+  script:
+    # Mirror to GitHub for GitHub Pages serving
+    - git config --global user.email "ci@elementary-interactive.com"
+    - git config --global user.name "Nitrogen CI"
+    - git clone --depth 1 https://${GITHUB_TOKEN}@github.com/elementary-interactive/nitrogen-docs-deploy.git /tmp/deploy
+    - rm -rf /tmp/deploy/*
+    - cp -r dist/* /tmp/deploy/
+    - cd /tmp/deploy
+    - echo "kb.elementary-interactive.dev" > CNAME
+    - git add -A
+    - git commit -m "Deploy ${CI_COMMIT_SHORT_SHA}" || echo "No changes"
+    - git push origin main
+  only:
+    - main
