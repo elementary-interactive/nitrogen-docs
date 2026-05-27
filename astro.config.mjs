@@ -64,10 +64,16 @@ export default defineConfig({
 				// of slapping a consent banner on top of the docs that ship the
 				// consent banner.
 			],
-			defaultLocale: 'en',
+			// `root` locale means English is served from `src/content/docs/`
+			// without a `/en/` URL prefix. Naming the locale `en` (without
+			// `root`) made Starlight look for content at `src/content/docs/en/`
+			// and find nothing — the sidebar rendered every group with an
+			// empty `<ul>`. When Hungarian is added in a follow-up ticket, it
+			// goes in alongside this entry as `hu: { label: 'Magyar', lang: 'hu' }`
+			// and its content lives at `src/content/docs/hu/`.
+			defaultLocale: 'root',
 			locales: {
-				en: { label: 'English' }
-				// Hungarian localisation in a follow-up ticket.
+				root: { label: 'English', lang: 'en' }
 			}
 		}),
 		svelte() // enables Svelte component demos embedded in docs pages
