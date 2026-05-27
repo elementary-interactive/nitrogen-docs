@@ -42,6 +42,10 @@ export default defineConfig({
 					]
 				},
 				{
+					label: 'SEO',
+					items: [{ autogenerate: { directory: 'seo' } }]
+				},
+				{
 					label: 'Skills & Cookbook',
 					items: [{ autogenerate: { directory: 'skills' } }]
 				},
