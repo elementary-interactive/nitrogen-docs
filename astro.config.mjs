@@ -25,6 +25,10 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'getting-started' } }]
 				},
 				{
+					label: 'Standards',
+					items: [{ autogenerate: { directory: 'standards' } }]
+				},
+				{
 					label: 'Packages',
 					items: [
 						{
