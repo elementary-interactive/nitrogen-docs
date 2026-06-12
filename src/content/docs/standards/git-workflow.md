@@ -125,8 +125,8 @@ Unchanged from established practice, restated here so this document stands alone
 
 ## CI guardrails
 
-Three reusable workflows, maintained **once** in the org-level `.github` repository and called
-by every package repo:
+Three reusable workflows, maintained **once** in the dedicated
+`elementary-interactive/nitrogen-workflows` repository and called by every package repo:
 
 1. **Generation guard** (`pull_request`): resolves the target branch's generation from
    `.nitrogen.yml`, parses the source branch name, and fails the check on any forbidden flow.
