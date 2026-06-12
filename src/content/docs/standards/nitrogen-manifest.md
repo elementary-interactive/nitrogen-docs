@@ -51,7 +51,7 @@ registry: gitlab                  # where releases are published from
 | `generations.<g>.branch` | yes | The generation line branch name, or `none`. |
 | `generations.<g>.status` | yes | `active` (gets features), `maintenance` (fixes only), `frozen` (tagged history, no work), `none` (generation does not exist here). |
 | `generations.<g>.framework` | when branch ≠ none | The framework constraints this generation guarantees. The release guard cross-checks these against `composer.json` / `package.json`. |
-| `mirror` | yes | The on-premise GitLab mirror URL (disaster-recovery copy and distribution origin). |
+| `mirror` | yes | The on-premise GitLab mirror URL (disaster-recovery copy and distribution origin). GitLab layout convention: packages live in the `elementary-interactive/nitrogen/` subgroup **without** the `nitrogen-` prefix (`…/nitrogen/core.git`), **except** frontend packages, which keep their full name (`…/nitrogen/nitrogen-frontend-pages.git`). Infrastructure projects (CDN etc.) live in the separate `devops` group. |
 | `registry` | yes | Where packages are published (`gitlab` = GitLab Package/Container Registry). |
 
 ### Example: a 2.x-only package
