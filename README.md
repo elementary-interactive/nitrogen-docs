@@ -63,3 +63,7 @@ sidebar entry there.
 ADRs go under `src/content/docs/adr/` using the `ADR-NNNN-title.md` naming
 convention. See [ADR-0005](https://kb.elementary-interactive.dev/adr/) once
 published for the documentation infrastructure rationale.
+
+## Cave smoke test
+
+2026-06-30T09:39:18Z — Cave orchestrator round OK
